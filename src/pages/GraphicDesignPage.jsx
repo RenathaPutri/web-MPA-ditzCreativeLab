@@ -1,30 +1,134 @@
+
 import React from 'react';
-import MainLayout from '../components/layout/MainLayout';
-import { PenTool } from 'lucide-react';
-import { Link } from 'react-router-dom';
-import Button from '../components/ui/Button';
+import ServicePageTemplate from '../components/templates/ServicePageTemplate';
+import { Palette, PenTool, Layout } from 'lucide-react';
 
 const GraphicDesignPage = () => {
+    const focusItems = [
+        {
+            title: "Brand Identity",
+            icon: Palette,
+            points: [
+                "Logo design and usage guidelines.",
+                "Color palette selection.",
+                "Typography systems.",
+                "Brand assets and moodboards."
+            ]
+        },
+        {
+            title: "Marketing Materials",
+            icon: Layout,
+            points: [
+                "Business cards and stationery.",
+                "Flyers, brochures, and posters.",
+                "Social media templates.",
+                "Banner ads and email graphics."
+            ]
+        },
+        {
+            title: "Custom Illustrations",
+            icon: PenTool,
+            points: [
+                "Unique character design.",
+                "Infographics and iconography.",
+                "Editorial illustrations.",
+                "Custom visual assets."
+            ]
+        }
+    ];
+
+    const pricingCategories = {
+        corporate: [
+            {
+                title: "Corporate Identity",
+                description: "Complete branding for new companies",
+                price: "Rp. 1.499K",
+                features: [
+                    "Logo Design (3 Concepts)",
+                    "Brand Guidelines PDF",
+                    "Stationery Suite",
+                    "Social Media Kit",
+                    "Unlimited Revisions"
+                ],
+                isPremium: false
+            },
+            {
+                title: "Design Retainer",
+                description: "Ongoing design support",
+                price: "Rp. 2.999K/Month",
+                features: [
+                    "Unlimited Design Requests",
+                    "Typical 48hr Turnaround",
+                    "Dedicated Designer",
+                    "Source Files Included",
+                    "Prioritized Support"
+                ],
+                isPremium: true
+            }
+        ],
+        umkm: [
+            {
+                title: "Logo Starter",
+                description: "Basic logo for small biz",
+                price: "Rp. 299K",
+                features: [
+                    "1 Logo Concept",
+                    "High Res Exports",
+                    "1 Revision Round",
+                    "Transparent Background"
+                ],
+                isPremium: false
+            },
+            {
+                title: "Branding Mini",
+                description: "Essential look & feel",
+                price: "Rp. 599K",
+                features: [
+                    "Logo Design (2 Concepts)",
+                    "Color Palette",
+                    "Business Card Design",
+                    "3 Revisions"
+                ],
+                isPremium: true
+            }
+        ],
+        student: [
+            {
+                title: "Poster/Flyer",
+                description: "For events or projects",
+                price: "Rp. 99K",
+                features: [
+                    "A4/A3 Layout",
+                    "Print Ready PDF",
+                    "1 Revision"
+                ],
+                isPremium: false
+            },
+            {
+                title: "Portfolio Layout",
+                description: "Design your portfolio PDF",
+                price: "Rp. 249K",
+                features: [
+                    "Up to 10 Pages",
+                    "Custom Layout",
+                    "Cover Design",
+                    "Digital Optimized PDF"
+                ],
+                isPremium: true
+            }
+        ]
+    };
+
     return (
-        <MainLayout>
-            <section className="pt-20 px-4 min-h-screen bg-white">
-                <div className="max-w-7xl mx-auto">
-                    <div className="mb-8">
-                        <Link to="/" className="text-gray-500 hover:text-blue-500 transition mb-4 inline-block">&larr; Back to Home</Link>
-                        <div className="flex items-center gap-4 mb-6">
-                            <div className="w-16 h-16 bg-pink-100 rounded-2xl flex items-center justify-center text-pink-600">
-                                <PenTool size={32} />
-                            </div>
-                            <h1 className="text-4xl md:text-6xl font-bold text-gray-900">Graphic Design</h1>
-                        </div>
-                        <p className="text-xl text-gray-600 max-w-3xl mb-8">
-                            Show your creativity and brand identity to gain advantages. Visuals that speak louder than words.
-                        </p>
-                        <Button className="bg-pink-500 hover:bg-pink-600 shadow-pink-200">Contact for Design</Button>
-                    </div>
-                </div>
-            </section>
-        </MainLayout>
+        <ServicePageTemplate
+            pageTitle="Graphic Design Services"
+            heroSubtitle={<>Visuals speak louder than words. We create designs <br /> that captivate your audience and elevate your brand.</>}
+            focusTitle={<>Our design expertise covers <br /> every aspect of your brand</>}
+            focusItems={focusItems}
+            servicesTitle="Design Packages"
+            servicesSubtitle={<>From simple logos to comprehensive brand identities, we have you covered.</>}
+            pricingCategories={pricingCategories}
+        />
     );
 };
 

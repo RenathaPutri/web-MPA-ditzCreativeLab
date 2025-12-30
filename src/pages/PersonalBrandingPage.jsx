@@ -1,30 +1,134 @@
+
 import React from 'react';
-import MainLayout from '../components/layout/MainLayout';
-import { User } from 'lucide-react';
-import { Link } from 'react-router-dom';
-import Button from '../components/ui/Button';
+import ServicePageTemplate from '../components/templates/ServicePageTemplate';
+import { User, Award, TrendingUp } from 'lucide-react';
 
 const PersonalBrandingPage = () => {
+    const focusItems = [
+        {
+            title: "Brand Strategy",
+            icon: User,
+            points: [
+                "Identifying unique value proposition.",
+                "Target audience definition.",
+                "Brand persona development.",
+                "Strategic positioning roadmap."
+            ]
+        },
+        {
+            title: "Digital Presence",
+            icon: TrendingUp,
+            points: [
+                "Social media profile optimization.",
+                "Content strategy for personal growth.",
+                "Website/Portfolio consultancy.",
+                "Networking strategy."
+            ]
+        },
+        {
+            title: "Reputation Management",
+            icon: Award,
+            points: [
+                "Guidelines for public communication.",
+                "Crisis management basics.",
+                "Consistency in messaging.",
+                "Building authority in your niche."
+            ]
+        }
+    ];
+
+    const pricingCategories = {
+        corporate: [
+            {
+                title: "Executive Branding",
+                description: "For C-Level executives",
+                price: "Rp. 1.999K",
+                features: [
+                    "Complete Content Strategy",
+                    "LinkedIn Management",
+                    "Thought Leadership Articles",
+                    "Ghostwriting Services",
+                    "Monthly Analytics"
+                ],
+                isPremium: false
+            },
+            {
+                title: "CEO Personal Brand",
+                description: "Full service management",
+                price: "Rp. 3.499K/Month",
+                features: [
+                    "Daily Content Creation",
+                    "Video Scripting",
+                    "PR & Media Kit",
+                    "Speaker Profile Optimization",
+                    "Dedicated Brand Manager"
+                ],
+                isPremium: true
+            }
+        ],
+        umkm: [
+            {
+                title: "Founder Starter",
+                description: "For business owners",
+                price: "Rp. 499K",
+                features: [
+                    "LinkedIn Profile Makeover",
+                    "Content Pillars Strategy",
+                    "1 Month Content Plan",
+                    "Bio Optimization"
+                ],
+                isPremium: false
+            },
+            {
+                title: "Founder Growth",
+                description: "Grow your influence",
+                price: "Rp. 899K",
+                features: [
+                    "4 LinkedIn Posts/Month",
+                    "Personal Storytelling Session",
+                    "Engagement Strategy",
+                    "Network Growth Tips"
+                ],
+                isPremium: true
+            }
+        ],
+        student: [
+            {
+                title: "Career Starter",
+                description: "Land your first job",
+                price: "Rp. 149K",
+                features: [
+                    "LinkedIn Review",
+                    "Resume/CV Feedback",
+                    "Headline Optimization"
+                ],
+                isPremium: false
+            },
+            {
+                title: "Creative Portfolio",
+                description: "For creative students",
+                price: "Rp. 299K",
+                features: [
+                    "Behance/Dribbble Setup",
+                    "Portfolio Review",
+                    "Personal Website Audit",
+                    "Project Case Study Tips"
+                ],
+                isPremium: true
+            }
+        ]
+    };
+
     return (
-        <MainLayout>
-            <section className="pt-20 px-4 min-h-screen bg-white">
-                <div className="max-w-7xl mx-auto">
-                    <div className="mb-8">
-                        <Link to="/" className="text-gray-500 hover:text-blue-500 transition mb-4 inline-block">&larr; Back to Home</Link>
-                        <div className="flex items-center gap-4 mb-6">
-                            <div className="w-16 h-16 bg-orange-100 rounded-2xl flex items-center justify-center text-orange-600">
-                                <User size={32} />
-                            </div>
-                            <h1 className="text-4xl md:text-6xl font-bold text-gray-900">Personal Branding</h1>
-                        </div>
-                        <p className="text-xl text-gray-600 max-w-3xl mb-8">
-                            Could make your personality look better than ever. We build your personal brand from scratch.
-                        </p>
-                        <Button className="bg-orange-500 hover:bg-orange-600 shadow-orange-200">Contact for Branding</Button>
-                    </div>
-                </div>
-            </section>
-        </MainLayout>
+        <ServicePageTemplate
+            pageTitle="Personal Branding Services"
+            heroSubtitle={<>It's not just about who you know, but who knows you. <br /> Build a powerful personal brand that opens doors.</>}
+            focusTitle={<>We help you define and express <br /> your authentic self</>}
+            focusItems={focusItems}
+            servicesTitle="Branding Packages"
+            servicesSubtitle={<>Invest in yourself. Choose a package to start building your legacy.</>}
+            pricingCategories={pricingCategories}
+        />
     );
 };
 
